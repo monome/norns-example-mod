@@ -6,7 +6,7 @@ this repo demonstrates how to create a "mod" which can augment/patch/hack matron
 ## why
 
 a mod lives in the `dust` folder just like normal norns scripts. unlike norns
-scripts, the code in a mod is loaded by matron when is starts up. mods can
+scripts, the code in a mod is loaded by matron when it starts up. mods can
 modify or extend the lua environment globally such that the changes are visible
 to all scripts.
 
@@ -15,12 +15,12 @@ to all scripts.
 mods work by registering functions to be called by matron hooks. matron defines
 four hooks:
 
-* "system_post_startup" - called after matron has fully started and system state
+* `system_post_startup` - called after matron has fully started and system state
   has been restored but before any script is run
-* "system_pre_shutdown" - called when `SYSTEM > SLEEP` is selected from the menu
-* "script_pre_init" - called after a script has been loaded but before its
+* `system_pre_shutdown` - called when `SYSTEM > SLEEP` is selected from the menu
+* `script_pre_init` - called after a script has been loaded but before its
   engine has started, pmap settings restored, and `init()` function called
-* "script_post_cleanup" - called after a script's `cleanup()` function has been
+* `script_post_cleanup` - called after a script's `cleanup()` function has been
   called, this normally occurs when switching between scripts
 
 multiple mods can each register their own callback function for a given hook.
@@ -33,9 +33,10 @@ MODS` menu.
 
 ## layout
 
-a mod is any norns script/project which contains a file called `lib/mod.lua`
-which allows a mod to be either a standalone project or simply functionality
-bundled along side an existing norns script.
+a mod is any norns script/project which contains a file called `lib/mod.lua`.
+this layout allows a mod to be either a standalone project or simply
+functionality bundled along side an existing norns script. a mod is free to
+`require` additional modules as needed.
 
 ## using
 
@@ -44,12 +45,13 @@ system level changes which may not be universally welcome. by default a mod;
 even if installed, will not be loaded by matron. one must explicitly enable a
 mod and restart matron before its functionality will be available.
 
-to enable a mod go to `SYSTEM > MODS`. mods which are loaded will have a small
-dot to the left of their name in the listing. use `E2` to selected an item in
-the list and then use `E3` to enable or disable as appropriate. _unloaded_ mods
-will show a `+` to the right their name to indicate that they will be enabled
-(and loaded) on restart. _loaded_ mods will show a `-` to the right of their
-name indicating they will be disabled on restart.
+to enable a mod go to `SYSTEM > MODS` to see the list of installed mods. mods
+which are loaded will have a small dot to the left of their name.
+use `E2` to selected an item in the list and then use `E3` to enable or disable
+as appropriate. _unloaded_ mods will show a `+` to the right their name to
+indicate that they will be enabled (and thus loaded) on restart. _loaded_ mods will
+show a `-` to the right of their name indicating they will be disabled on
+restart.
 
 loaded mods which have a menu will have ` >` at the end of their name, pressing
 `K3` will enter the mod's menu.
