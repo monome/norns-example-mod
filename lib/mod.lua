@@ -76,7 +76,7 @@ m.deinit = function() end -- on menu exit
 -- register the mod menu
 --
 -- NOTE: `mod.this_name` is a convienence variable which will be set to the name
--- of the mod with it is being loaded. in order for the menu to work it must be
+-- of the mod which is being loaded. in order for the menu to work it must be
 -- registered with a name which matches the name of the mod in the dust folder.
 --
 mod.menu.register(mod.this_name, m)
