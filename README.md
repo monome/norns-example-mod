@@ -41,7 +41,7 @@ functionality bundled along side an existing norns script. a mod is free to
 ## using
 
 mods by their nature can have a negative impact on system stability or make
-system level changes which may not be universally welcome. by default a mod;
+system level changes which may not be universally welcome. by default a mod,
 even if installed, will not be loaded by matron. one must explicitly enable a
 mod and restart matron before its functionality will be available.
 
