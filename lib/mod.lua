@@ -25,7 +25,7 @@ local state = {
 -- name. registering a new function with the name of an existing function will
 -- replace the existing function. using descriptive names (which include the
 -- name of the mod itself) can help debugging because the name of a callback
--- function will be printed out by matron (making it visible in mainden) before
+-- function will be printed out by matron (making it visible in maiden) before
 -- the callback function is called.
 --
 -- here we have dummy functionality to help confirm things are getting called
