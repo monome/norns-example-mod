@@ -25,8 +25,12 @@ four hooks:
 
 multiple mods can each register their own callback function for a given hook.
 matron will call each registered function but the order in which the functions
-are called is arbitrary. any errors generated within a registered function will
-be caught and ignored.
+are called is arbitrary.
+
+any errors generated within a registered function will be caught and ignored
+in the maiden REPL, but see
+[the debugging documentation](https://monome.org/docs/norns/help/#deeper-debugging)
+for how you can access them.
 
 mods may additionally provide their own menu page accessible via the `SYSTEM >
 MODS` menu.
